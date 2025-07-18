@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="title"></title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header class="navbar">
+    <img src="assets/log.jpeg" class="navbar-logo" alt="Logo" />
+    <h1 class="header-title" data-i18n="headerTitle"></h1>
+    <nav>
+      <div class="nav-desktop">
+        <a href="index.html" data-i18n="navHome"></a>
+        <div class="dropdown">
+          <button class="dropbtn" aria-haspopup="true" aria-expanded="false" data-i18n="navAboutUs"></button>
+          <div class="dropdown-content" aria-label="submenu">
+            <a href="our-ministry.html" data-i18n="navOurMinistry"></a>
+            <a href="our-pastors.html" data-i18n="navOurPastors"></a>
+          </div>
+        </div>
+        <a href="messages.html" data-i18n="navMessage"></a>
+        <a href="give.html" data-i18n="navGive"></a>
+        <a href="contact.html" class="active" data-i18n="navContact"></a>
+      </div>
+
+      <!-- Mobile Menu -->
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <div class="nav-mobile" id="navMenu">
+        <a href="index.html" data-i18n="navHome"></a>
+        <button class="mobile-dropdown-btn" data-i18n="navAboutUs"></button>
+        <div class="mobile-dropdown-content">
+          <a href="our-ministry.html" data-i18n="navOurMinistry"></a>
+          <a href="our-pastors.html" data-i18n="navOurPastors"></a>
+        </div>
+        <a href="messages.html" data-i18n="navMessage"></a>
+        <a href="give.html" data-i18n="navGive"></a>
+        <a href="contact.html" class="active" data-i18n="navContact"></a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <video autoplay muted loop playsinline class="contact-video">
+      <source src="assets/video.mov" type="video/mp4" />
+      <p data-i18n="videoNotSupported"></p>
+    </video>
+
+    <div class="blur-overlay"></div>
+
+    <div class="contact-box">
+      <h2 data-i18n="contactTitle"></h2>
+      <form id="contact-form" action="https://formspree.io/f/mjkokyla" method="POST">
+        <label for="name" data-i18n="labelName"></label>
+        <input type="text" id="name" name="name" placeholder="" data-i18n-placeholder="placeholderName" required />
+
+        <label for="email" data-i18n="labelEmail"></label>
+        <input type="email" id="email" name="email" placeholder="" data-i18n-placeholder="placeholderEmail" required />
+
+        <label for="message" data-i18n="labelMessage"></label>
+        <textarea id="message" name="message" placeholder="" data-i18n-placeholder="placeholderMessage" required></textarea>
+
+        <button type="submit" data-i18n="buttonSend"></button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="social-footer">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/_generacionr_?igsh=NjRpcHByd2VhN21p" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/16xs5CdGys/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/@generacion_r?si=Q437HaWdcBAg8Kd1" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@generacin.remanent?_t=ZT-8y5XGkJwlPZ&_r=1" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p class="footer-copy" data-i18n="footerCopy"></p>
+  </footer>  
+
+  <!-- SCRIPT -->
+  <script>
+    const navMenu = document.getElementById('navMenu');
+    const hamburger = document.getElementById('hamburger');
+    const mobileDropdownBtn = document.querySelector('.mobile-dropdown-btn');
+    const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
+
+    function toggleMenu() {
+      const isOpen = navMenu.classList.toggle('show');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    }
+
+    mobileDropdownBtn.addEventListener('click', () => {
+      document.querySelectorAll('.mobile-dropdown-content').forEach(drop => {
+        if (drop !== mobileDropdownContent) drop.classList.remove('show');
+      });
+      mobileDropdownContent.classList.toggle('show');
+    });
+
+    const translations = {
+      en: {
+        title: "Generación Remanente",
+        headerTitle: "Generación Remanente Ministry",
+        navHome: "Home",
+        navAboutUs: "About Us",
+        navOurMinistry: "Our Ministry",
+        navOurPastors: "Our Pastors",
+        navMessage: "Message",
+        navGive: "Give",
+        navContact: "Contact",
+        videoNotSupported: "Your browser does not support the video.",
+        contactTitle: "Contact Us",
+        labelName: "Name",
+        placeholderName: "Your name",
+        labelEmail: "Email",
+        placeholderEmail: "your@email.com",
+        labelMessage: "Message",
+        placeholderMessage: "Prayer requests...",
+        buttonSend: "Send",
+        formSuccess: "Message sent successfully!",
+        footerCopy: "© 2025 Generación Remanente"
+      },
+      es: {
+        title: "Generación Remanente",
+        headerTitle: "Generación Remanente Ministry",
+        navHome: "Inicio",
+        navAboutUs: "Sobre Nosotros",
+        navOurMinistry: "Nuestro Ministerio",
+        navOurPastors: "Nuestros Pastores",
+        navMessage: "Mensaje",
+        navGive: "Dar",
+        navContact: "Contacto",
+        videoNotSupported: "Tu navegador no soporta el video.",
+        contactTitle: "Contáctanos",
+        labelName: "Nombre",
+        placeholderName: "Tu nombre",
+        labelEmail: "Correo electrónico",
+        placeholderEmail: "tu@email.com",
+        labelMessage: "Mensaje",
+        placeholderMessage: "Peticiones de oración...",
+        buttonSend: "Enviar",
+        formSuccess: "¡Mensaje enviado con éxito!",
+        footerCopy: "© 2025 Generación Remanente"
+      }
+    };
+
+    let currentLang = localStorage.getItem('siteLanguage') || 'es';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.title = translations[lang].title;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+          el.placeholder = translations[lang][key];
+        }
+      });
+    }
+
+    setLanguage(currentLang);
+
+  </script>
+</body>
+</html>

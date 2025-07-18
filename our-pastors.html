@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="title">¿Quiénes Somos? - Generación Remanente</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <img src="assets/log.jpeg" class="navbar-logo" alt="Logo" />
+    <h1 class="header-title" data-i18n="headerTitle">Generación Remanente Ministry</h1>
+    <nav>
+      <div class="nav-desktop">
+        <a href="index.html" data-i18n="navHome">Inicio</a>
+        <div class="dropdown">
+          <button class="dropbtn" data-i18n="navAboutUs">Sobre Nosotros <i class="fas fa-caret-down"></i></button>
+          <div class="dropdown-content">
+            <a href="our-ministry.html" data-i18n="navOurMinistry">Nuestro Ministerio</a>
+            <a href="our-pastors.html" data-i18n="navOurPastors">¿Quiénes Somos?</a>
+          </div>
+        </div>
+        <a href="messages.html" data-i18n="navMessage">Mensaje</a>
+        <a href="give.html" data-i18n="navGive">Dar</a>
+        <a href="shop.html" data-i18n="navShop">Tienda</a>
+        <a href="contact.html" data-i18n="navContact">Contacto</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <div class="nav-mobile" id="navMenu">
+        <a href="index.html" data-i18n="navHome">Inicio</a>
+        <button class="mobile-dropdown-btn" data-i18n="navAboutUs">Sobre Nosotros <i class="fas fa-caret-down"></i></button>
+        <div class="mobile-dropdown-content">
+          <a href="our-ministry.html" data-i18n="navOurMinistry">Nuestro Ministerio</a>
+          <a href="our-pastors.html" data-i18n="navOurPastors">¿Quiénes Somos?</a>
+        </div>
+        <a href="messages.html" data-i18n="navMessage">Mensaje</a>
+        <a href="give.html" data-i18n="navGive">Dar</a>
+        <a href="shop.html" data-i18n="navShop">Tienda</a>
+        <a href="contact.html" data-i18n="navContact">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Google Translate Widget -->
+  <div id="google_translate_element"></div>
+
+  <main class="center-content" style="margin-top: 80px;">
+    <section class="about-section" aria-label="Who We Are Section">
+      <h2 class="section-title" data-i18n="ourPastorsHeading">¿Quiénes Somos?</h2>
+      <div class="about-item">
+        <img src="assets/pastors.jpeg" alt="Generación Remanente Ministry" />
+        <div class="about-text" data-i18n="ourPastorsText">
+          <!-- Text replaced dynamically -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="social-footer">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/_generacionr_?igsh=NjRpcHByd2VhN21p" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/16xs5CdGys/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/@generacion_r?si=Q437HaWdcBAg8Kd1" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@generacin.remanent?_t=ZT-8y5XGkJwlPZ&_r=1" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p class="footer-copy" data-i18n="footerCopy"></p>
+  </footer>
+  
+
+  <script>
+    // Mobile Menu
+    const navMenu = document.getElementById('navMenu');
+    const hamburger = document.getElementById('hamburger');
+    const mobileDropdownBtn = document.querySelector('.mobile-dropdown-btn');
+    const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
+
+    function toggleMenu() {
+      const isOpen = navMenu.classList.toggle('show');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    }
+
+    mobileDropdownBtn.addEventListener('click', () => {
+      mobileDropdownContent.classList.toggle('show');
+    });
+
+    // Translations without language switcher
+    const translations = {
+      en: {
+        title: "Who We Are - Generación Remanente",
+        headerTitle: "Generación Remanente Ministry",
+        navHome: "Home",
+        navAboutUs: "About Us",
+        navOurMinistry: "Our Ministry",
+        navOurPastors: "Who We Are",
+        navMessage: "Message",
+        navGive: "Give",
+        navShop: "Shop",
+        navContact: "Contact",
+        ourPastorsHeading: "Who We Are",
+        ourPastorsText: `
+          <ul>
+            <li>Generación Remanente Ministry was born from God's heart and the unwavering commitment of a family that has served for over 20 years in various ministries, always guided by the passion to bring the message of Christ to everyone, everywhere.</li>
+            <li>For more than two decades, God formed and prepared this family in different areas of ministry — teaching, worship, evangelism, discipleship, pastoral leadership — shaping not just their gifts, but their character, faith, and vision.</li>
+            <li>Inspired by Romans 11:5 — “So too, at the present time there is a remnant chosen by grace” — Generación Remanente was born, a church raised as a prophetic voice in these times.</li>
+            <li>We are a spiritual family that embraces each person with love, believes in the transforming power of the Gospel, and works to form generations rooted in the Word, sensitive to the Holy Spirit, and committed to the Great Commission.</li>
+            <li>Our mission is to prepare a generation that not only listens but does the will of God.</li>
+            <li>Our vision is to be a refuge of restoration, formation, and activation of divine purpose.</li>
+            <li>Our commitment is to Christ, His Church, and every soul He brings to us.</li>
+            <li>Welcome to this family. You are part of the remnant.</li>
+            <li>Generación Remanente Ministry — Chosen by grace, called to impact.</li>
+          </ul>
+        `,
+        footerCopy: "© 2025 Generación Remanente"
+      },
+      es: {
+        title: "¿Quiénes Somos? - Generación Remanente",
+        headerTitle: "Generación Remanente Ministry",
+        navHome: "Inicio",
+        navAboutUs: "Sobre Nosotros",
+        navOurMinistry: "Nuestro Ministerio",
+        navOurPastors: "¿Quiénes Somos?",
+        navMessage: "Mensaje",
+        navGive: "Dar",
+        navShop: "Tienda",
+        navContact: "Contacto",
+        ourPastorsHeading: "¿Quiénes Somos?",
+        ourPastorsText: `
+          <ul>
+            <li>Generación Remanente Ministry nace del corazón de Dios y del compromiso inquebrantable de una familia que ha servido por más de 20 años en diversos ministerios, guiados siempre por la pasión de llevar el mensaje de Cristo a toda persona, en todo lugar.</li>
+            <li>Durante más de dos décadas, Dios formó y preparó a esta familia en distintas áreas del ministerio —enseñanza, adoración, evangelismo, discipulado, liderazgo pastoral— moldeando no solo sus dones, sino su carácter, fe y visión.</li>
+            <li>Inspirados por la Palabra en Romanos 11:5 —“Así también aun en este tiempo ha quedado un remanente escogido por gracia”—, nace Generación Remanente, una iglesia establecida como voz profética en medio de los tiempos que vivimos.</li>
+            <li>Somos una familia espiritual que abraza con amor a cada persona, que cree en el poder transformador del Evangelio, y que trabaja para formar generaciones firmes en la Palabra, sensibles al Espíritu Santo y comprometidas con la Gran Comisión.</li>
+            <li>Nuestra misión es preparar una generación que no solo escuche, sino que haga la voluntad de Dios.</li>
+            <li>Nuestra visión es ser un refugio de restauración, formación y activación del propósito divino.</li>
+            <li>Nuestro compromiso es con Cristo, con Su Iglesia y con cada alma que Él pone en nuestro camino.</li>
+            <li>Te damos la bienvenida a esta familia. Eres parte del remanente.</li>
+            <li>Generación Remanente Ministry — Escogidos por gracia, llamados para impactar.</li>
+          </ul>
+        `,
+        footerCopy: "© 2025 Generación Remanente"
+      }
+    };
+
+    const currentLang = 'es'; // Set default language here
+    document.documentElement.lang = currentLang;
+    document.title = translations[currentLang].title;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (key !== 'ourPastorsText') {
+        if (translations[currentLang][key]) el.textContent = translations[currentLang][key];
+      }
+    });
+
+    const aboutText = document.querySelector('[data-i18n="ourPastorsText"]');
+    if (aboutText) aboutText.innerHTML = translations[currentLang].ourPastorsText;
+  </script>
+
+  <!-- Google Translate widget -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

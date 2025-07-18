@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nuestro Ministerio - Generación Remanente</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="navbar">
+    <img src="assets/log.jpeg" class="navbar-logo" alt="Logo Generación Remanente" />
+    <h1 class="header-title">Generación Remanente Ministry</h1>
+    <nav>
+      <div class="nav-desktop">
+        <a href="index.html">Inicio</a>
+        <div class="dropdown">
+          <button class="dropbtn">Sobre Nosotros <i class="fas fa-caret-down"></i></button>
+          <div class="dropdown-content">
+            <a href="our-ministry.html">Nuestro Ministerio</a>
+            <a href="our-pastors.html">¿Quiénes Somos?</a>
+          </div>
+        </div>
+        <a href="messages.html">Mensaje</a>
+        <a href="give.html">Dar</a>
+        <a href="shop.html">Tienda</a>
+        <a href="contact.html">Contacto</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+
+      <div class="nav-mobile" id="navMenu">
+        <a href="index.html">Inicio</a>
+        <button class="mobile-dropdown-btn">Sobre Nosotros <i class="fas fa-caret-down"></i></button>
+        <div class="mobile-dropdown-content">
+          <a href="our-ministry.html">Nuestro Ministerio</a>
+          <a href="our-pastors.html">¿Quiénes Somos?</a>
+        </div>
+        <a href="messages.html">Mensaje</a>
+        <a href="give.html">Dar</a>
+        <a href="shop.html">Tienda</a>
+        <a href="contact.html">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Google Translate Widget -->
+  <div id="google_translate_element"></div>
+
+  <main class="center-content" style="margin-top: 80px; max-width: 900px; margin-left: auto; margin-right: auto; padding: 0 1rem;">
+    <section class="about-section" aria-label="Our Ministry Section">
+      <h2 class="section-title">Nuestro Ministerio</h2>
+      <div class="about-item" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+        <img src="assets/image.1.jpeg" alt="Ministerio Generación Remanente" style="flex: 1 1 300px; max-width: 350px; border-radius: 8px;" />
+        <div class="about-text" style="flex: 2 1 400px; font-size: 1.1rem; line-height: 1.8; color: #333;">
+          <ul style="padding-left: 1.5rem;">
+            <li><strong>Creemos en Jesucristo como el Hijo de Dios.</strong><br />
+              Jesucristo es el Hijo unigénito enviado para redimir al mundo.<br />
+              Murió, fue sepultado y resucitó al tercer día.<br />
+              Él es el único camino a la salvación. (Juan 14:6; Romanos 5:10; 1 Corintios 15:3-4)
+            </li>
+            <li><strong>Creemos en el Dios Trino.</strong><br />
+              Un solo Dios eterno en tres personas: Padre, Hijo y Espíritu Santo.<br />
+              No son tres dioses, sino uno solo en perfecta unidad. (Mateo 28:19; 2 Corintios 13:14)
+            </li>
+            <li><strong>Creemos en los cinco ministerios.</strong><br />
+              Apóstol, Profeta, Evangelista, Pastor y Maestro.<br />
+              Diseñados para edificar la Iglesia. (Efesios 4:11-13)
+            </li>
+            <li><strong>Creemos en la Biblia como Palabra de Dios.</strong><br />
+              Inspirada por Dios y escrita por hombres guiados por el Espíritu Santo.<br />
+              Autoridad suprema en fe y conducta. (2 Timoteo 3:16-17)
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="social-footer">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/_generacionr_?igsh=NjRpcHByd2VhN21p" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/16xs5CdGys/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/@generacion_r?si=Q437HaWdcBAg8Kd1" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@generacin.remanent?_t=ZT-8y5XGkJwlPZ&_r=1" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p class="footer-copy" data-i18n="footerCopy"></p>
+  </footer>  
+
+  <script>
+    const navMenu = document.getElementById('navMenu');
+    const hamburger = document.getElementById('hamburger');
+    const mobileDropdownBtn = document.querySelector('.mobile-dropdown-btn');
+    const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
+
+    function toggleMenu() {
+      const isOpen = navMenu.classList.toggle('show');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    mobileDropdownBtn.addEventListener('click', () => {
+      mobileDropdownContent.classList.toggle('show');
+    });
+  </script>
+
+  <!-- Google Translate -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+
+

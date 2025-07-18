@@ -1,0 +1,1088 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background video fixed fullscreen */
+.hero-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Navbar layout */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo (left) */
+.navbar-logo {
+  width: 80px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* Title */
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #3b3b3b;
+  text-shadow: 1px 1px 4px rgba(214, 179, 111, 0.3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  line-height: 1.3;
+  text-align: center;
+  cursor: default;
+  transition: color 0.4s ease;
+}
+
+.header-title:hover {
+  color: #d6b36f;
+  text-shadow: 2px 2px 6px rgba(214, 179, 111, 0.6);
+}
+
+/* Desktop nav links */
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-desktop a,
+.dropdown .dropbtn {
+  font-family: 'Playfair Display', serif;
+  text-decoration: none;
+  color: #3b3b3b;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-desktop a:hover,
+.dropdown .dropbtn:hover {
+  color: #d6b36f;
+  border-bottom: 2px solid #d6b36f;
+}
+
+.nav-desktop a:focus,
+.nav-mobile a:focus,
+.dropbtn:focus,
+.mobile-dropdown-btn:focus {
+  outline: 2px solid #d6b36f;
+  outline-offset: 2px;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 0;
+  border-radius: 6px;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 16px;
+  color: #3b3b3b;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+  color: #d6b36f;
+}
+
+/* Hamburger (default hidden) */
+/*.hamburger {
+  display: none;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+  /* Hide desktop nav */
+  .nav-desktop {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .hamburger {
+    display: flex;
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1102;
+  }
+
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+  }
+
+  /* Mobile nav */
+  .nav-mobile {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 65px;
+    right: 20px;
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    z-index: 1100;
+    width: 180px;
+  }
+
+  .nav-mobile.show {
+    display: flex;
+  }
+
+  .nav-mobile a {
+    text-decoration: none;
+    color: #3b3b3b;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 10px 0;
+    padding: 5px 0;
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+
+  .nav-mobile a:hover {
+    color: #d6b36f;
+  }
+
+  .header-title {
+    font-size: 1.2rem;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .mobile-dropdown-btn {
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    font-family: 'Playfair Display', serif;
+    color: #3b3b3b;
+    padding: 8px 12px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+
+  .mobile-dropdown-btn:hover {
+    color: #d6b36f;
+    border-bottom: 2px solid #d6b36f;
+  }
+
+  .mobile-dropdown-content {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    padding-left: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-dropdown-content.show {
+    display: flex;
+  }
+
+  .mobile-dropdown-content a {
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #3b3b3b;
+    font-weight: 500;
+    font-family: 'Playfair Display', serif;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .mobile-dropdown-content a:hover {
+    background-color: #f2f2f2;
+    color: #d6b36f;
+  }
+}
+
+
+/* Footer */
+.social-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 20px 0 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.social-footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons a {
+  color: black;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #d6b36f;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  color: #555;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+}
+
+/* Contact Page Styles */
+/* ... Your existing contact styles here ... */
+/* Contact Page Styles */
+.contact-section {
+  position: relative;
+  min-height: calc(100vh - 70px);
+  padding-top: 70px;
+  font-family: 'Open Sans', sans-serif;
+  color: #444;
+  overflow: hidden;
+}
+
+.contact-video {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 140px);
+  object-fit: cover;
+  filter: blur(3px);
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.blur-overlay {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 140px);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.contact-box {
+  position: relative;
+  max-width: 500px;
+  background: white;
+  margin: 3rem auto 5rem auto;
+  padding: 40px 50px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.contact-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.contact-box label {
+  font-weight: 600;
+  margin-top: 1.2rem;
+  display: block;
+  color: #444;
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin-top: 0.3rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+  border-color: #d6b36f;
+  outline: none;
+}
+
+.contact-box textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-box button {
+  margin-top: 2rem;
+  background-color: #d6b36f;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Playfair Display', serif;
+  transition: background-color 0.3s ease;
+}
+
+.contact-box button:hover {
+  background-color: #b89750;
+}
+
+@media (max-width: 768px) {
+  .contact-box {
+    padding: 30px 25px;
+    margin: 2rem 1rem 4rem 1rem;
+  }
+}
+
+/* Nav flex and language switcher */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.language-switcher {
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .language-switcher {
+    position: absolute;
+    top: 15px;
+    right: 60px;
+    z-index: 1101;
+  }
+
+  .hamburger {
+    position: fixed; /* ensure fixed */
+    top: 15px;
+    right: 20px;
+    z-index: 1102;
+  }
+  
+  .nav-mobile {
+    padding-top: 60px;
+  }
+}
+
+/* Style for Google Translate widget container */
+/* ... your existing styles for google translate ... */
+
+/* Google Translate Container Styling */
+#google_translate_element {
+  position: fixed;
+  top: 80px; /* sits just below the hamburger */
+  right: 20px;
+  z-index: 1103;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 4px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0.95);
+}
+
+/* Make dropdown look integrated with the site's style */
+#google_translate_element select {
+  border: none !important;
+  background: transparent !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  color: #3b3b3b !important;
+  cursor: pointer;
+  padding: 4px 8px !important;
+  border-radius: 5px !important;
+  outline: none !important;
+}
+
+/* Hide Google branding text and logo */
+.goog-logo-link,
+.goog-te-gadget span {
+  display: none !important;
+}
+
+/* Responsive: Move below header on very small screens */
+@media (max-width: 768px) {
+  #google_translate_element {
+    top: auto;
+    bottom: 15px;
+    right: 15px;
+    position: fixed;
+    transform: scale(0.9);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.12);
+    padding: 3px 8px;
+  }
+}
+/* Desktop navbar fine-tuning */
+@media (min-width: 769px) {
+  .navbar {
+    padding: 20px 40px;
+  }
+
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .header-title {
+    margin-right: auto;
+    font-size: 2rem;
+  }
+
+  .nav-desktop {
+    gap: 25px;
+  }
+
+  .dropdown .dropbtn i {
+    margin-left: 5px;
+    font-size: 0.85rem;
+  }
+
+  .dropdown-content {
+    top: 110%;
+    border: 1px solid #eee;
+  }
+}
+/* Fix hamburger visibility on desktop */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+
+  .nav-mobile {
+    display: none !important;
+  }
+}
+/* === Our Ministry Page Enhancements === */
+.ministry-section {
+  padding: 100px 20px 60px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;  /* smaller font size */
+  color: #3b3b3b;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+.ministry-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  overflow-x: auto;  /* allows horizontal scroll if viewport too narrow */
+  padding-bottom: 10px; /* space under for scrollbar */
+}
+
+.ministry-img {
+  flex: 0 0 300px; /* fixed width */
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.semi-title,
+.belief-list {
+  flex: 1 1 0;
+  min-width: 250px; /* prevent too small */
+}
+
+.belief-list ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-top: 0;
+}
+
+.belief-list li {
+  font-size: 1rem;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Responsive: stack image and text on mobile */
+@media (max-width: 768px) {
+  .ministry-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ministry-img {
+    flex: none;
+    max-width: 90vw;
+    margin-bottom: 1.5rem;
+  }
+
+  .semi-title,
+  .belief-list {
+    min-width: auto;
+    width: 100%;
+  }
+}
+/* === Our Pastors Page Specific Styles === */
+
+.about-section {
+  padding: 100px 20px 60px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem; /* smaller than ministry title */
+  color: #3b3b3b;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  overflow-x: auto;  /* horizontal scroll if needed */
+  padding-bottom: 10px;
+}
+
+.about-item img {
+  flex: 0 0 300px; /* fixed width */
+  max-width: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+  height: auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about-text {
+  flex: 1 1 0;
+  min-width: 250px; /* prevent shrinking too much */
+  font-family: 'Playfair Display', serif;
+  color: #333;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.about-text h3.semi-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #3b3b3b;
+  text-align: left;
+}
+
+/* Responsive: stack vertically on smaller screens */
+@media (max-width: 768px) {
+  .about-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-item img,
+  .about-text {
+    flex: unset;
+    max-width: 100%;
+  }
+
+  .about-text {
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .about-text h3.semi-title {
+    text-align: center;
+  }
+}
+.about-text ul {
+  list-style: disc inside;
+  padding-left: 1rem;
+  margin-top: 0;
+}
+
+.about-text li {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  font-family: 'Playfair Display', serif;
+}
+.about-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 100px 20px 60px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #3b3b3b;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.about-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.about-item img {
+  width: 300px;  /* Increase size */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+
+.about-text {
+  flex: 1 1 0;
+  min-width: 250px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.about-text ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-top: 0;
+}
+
+.about-text li {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 700px) {
+  .about-item {
+    flex-direction: column;
+  }
+  .about-item img, .about-text {
+    max-width: 100%;
+    flex: none;
+  }
+}
+.about-item img {
+  display: block;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .about-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-item img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+/*MESSAGE _ PAGE*/
+/* Push content down below the fixed or sticky navbar */
+.navbar {
+  position: sticky; /* or fixed, if your navbar is fixed */
+  top: 0;
+  z-index: 1000;
+  background-color: white; /* or your navbar background */
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Add bottom margin to navbar to separate from content */
+.navbar + main {
+  margin-top: 80px; /* Adjust this if your navbar height changes */
+}
+
+/* Title (h2) in messages section */
+.messages-section h2 {
+  margin-top: 0;
+  margin-bottom: 40px; /* Space below the title */
+  text-align: center;  /* Center the heading */
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #222;
+}
+
+/* Video container adjustments */
+.video-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 60px; /* Top margin removed because navbar + main margin pushes content */
+  padding: 0 20px;
+}
+
+.video-embed {
+  flex: 1 1 300px;
+  max-width: 400px;
+  aspect-ratio: 16 / 9;
+}
+
+.video-embed iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .video-container {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 40px;
+  }
+
+  .video-embed {
+    max-width: 100%;
+  }
+}
+/* === Shop Section Styles === */
+/* Center main content with max width and padding */
+main#main-content {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: center;
+  color: #000;
+  background: #fff;
+}
+
+/* Merchandise Section */
+.shop-section h2 {
+  font-size: 2.2rem;
+  color: #000;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.shopify-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 220px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease;
+  color: #000;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  max-width: 150px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.product-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.product-card p {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.product-card button {
+  background-color: #000;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.product-card button:hover,
+.product-card button:focus {
+  background-color: #222;
+  outline: none;
+}
+
+/* Donation Section */
+.donation-section {
+  background-color: #fff;
+  padding: 2rem 1rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 480px;
+  margin: 0 auto 3rem auto;
+  color: #000;
+}
+
+.donation-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #000;
+  font-weight: 700;
+}
+
+form#donation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: left;
+}
+
+/* Fieldset styling */
+form#donation-form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Labels */
+form#donation-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Inputs & selects */
+form#donation-form input[type="text"],
+form#donation-form input[type="number"],
+form#donation-form select {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  border: 1.5px solid #000;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  color: #000;
+  background: #fff;
+}
+
+form#donation-form input[type="text"]:focus,
+form#donation-form input[type="number"]:focus,
+form#donation-form select:focus {
+  border-color: #444;
+  outline: none;
+}
+
+/* Show custom amount input only when selected */
+#custom-amount {
+  margin-top: 0.5rem;
+}
+
+/* Submit button */
+form#donation-form button[type="submit"] {
+  background-color: #000;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+form#donation-form button[type="submit"]:hover,
+form#donation-form button[type="submit"]:focus {
+  background-color: #222;
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .shopify-products {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-card {
+    width: 90%;
+    max-width: 280px;
+  }
+  
+  .donation-section {
+    max-width: 100%;
+  }
+  
+  main#main-content {
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
+}
+
+/* Accessibility: visually hidden helper */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; 
+  width: 1px; 
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Optional: add pointer cursor on interactive elements */
+button, select, input[type="text"], input[type="number"] {
+  cursor: pointer;
+}
+/* Contact box general style */
+.contact-box {
+  max-width: 480px;
+  margin: 4rem auto; /* Center horizontally with top/bottom margin */
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  color: #000;
+  position: relative;
+  z-index: 10;
+  text-align: left;
+}
+
+/* Center contact box content on mobile */
+@media (max-width: 768px) {
+  .contact-box {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    width: 90%;
+    text-align: center; /* optional: center text on mobile */
+  }
+  
+  /* Optional: center form inputs and button */
+  .contact-box form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-box form label,
+  .contact-box form input,
+  .contact-box form textarea,
+  .contact-box form button {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+
+
+
+
+

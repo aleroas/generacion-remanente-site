@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="title">Generación Remanente</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+  <header class="navbar">
+    <img src="assets/log.jpeg" class="navbar-logo" alt="Generación Remanente Logo" />
+    <h1
+      class="header-title"
+      data-i18n="headerTitle"
+      aria-label="Generación Remanente Ministry"
+    >
+      Generación Remanente Ministry
+    </h1>
+    <nav role="navigation" aria-label="Primary Navigation">
+      <div class="nav-desktop">
+        <a href="index.html" data-i18n="navHome">Inicio</a>
+        <div class="dropdown" tabindex="0">
+          <button
+            class="dropbtn"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="submenu-about"
+            data-i18n="navAboutUs"
+          >
+            Sobre Nosotros
+          </button>
+          <div
+            class="dropdown-content"
+            id="submenu-about"
+            aria-label="About Us submenu"
+            role="menu"
+          >
+            <a href="our-ministry.html" data-i18n="navOurMinistry" role="menuitem"
+              >Nuestro Ministerio</a
+            >
+            <a href="our-pastors.html" data-i18n="navOurPastors" role="menuitem"
+              >Nuestros Pastores</a
+            >
+          </div>
+        </div>
+        <a href="messages.html" data-i18n="navMessage">Mensaje</a>
+        <a href="give.html" class="active" data-i18n="navGiveShop">Donar &amp; Tienda</a>
+        <a href="contact.html" data-i18n="navContact">Contacto</a>
+      </div>
+
+      <!-- Mobile Menu -->
+      <button
+        class="hamburger"
+        id="hamburger"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="navMenu"
+        onclick="toggleMenu()"
+      >
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <div class="nav-mobile" id="navMenu" role="menu">
+        <a href="index.html" data-i18n="navHome" role="menuitem">Inicio</a>
+        <button
+          class="mobile-dropdown-btn"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="mobile-submenu-about"
+          data-i18n="navAboutUs"
+        >
+          Sobre Nosotros
+        </button>
+        <div class="mobile-dropdown-content" id="mobile-submenu-about" role="menu">
+          <a href="our-ministry.html" data-i18n="navOurMinistry" role="menuitem"
+            >Nuestro Ministerio</a
+          >
+          <a href="our-pastors.html" data-i18n="navOurPastors" role="menuitem"
+            >Nuestros Pastores</a
+          >
+        </div>
+        <a href="messages.html" data-i18n="navMessage" role="menuitem">Mensaje</a>
+        <a href="give.html" class="active" data-i18n="navGiveShop" role="menuitem"
+          >Donar &amp; Tienda</a
+        >
+        <a href="contact.html" data-i18n="navContact" role="menuitem">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <!-- Merchandise Section -->
+    <section
+      aria-labelledby="shopHeading"
+      aria-describedby="shopDescription"
+      class="shop-section"
+    >
+      <h2 id="shopHeading" data-i18n="shopHeading">Tienda de Mercancía 🛍️</h2>
+      <p id="shopDescription" class="visually-hidden">
+        Explora nuestra exclusiva mercancía Generación Remanente.
+      </p>
+      <div class="shopify-products">
+        <article class="product-card" role="group" aria-labelledby="product1Name">
+          <img src="assets/merch1.jpg" alt="Generación Remanente Camiseta" />
+          <h3 id="product1Name" data-i18n="product1Name">Camiseta 👕</h3>
+          <p>$20.00</p>
+          <button
+            type="button"
+            onclick="window.open('https://yourshopifystore.com/products/t-shirt', '_blank')"
+            data-i18n="buyNowBtn"
+            aria-label="Comprar Generación Remanente Camiseta ahora"
+          >
+            Comprar 🛒
+          </button>
+        </article>
+        <article class="product-card" role="group" aria-labelledby="product2Name">
+          <img src="assets/merch2.jpg" alt="Generación Remanente Gorra" />
+          <h3 id="product2Name" data-i18n="product2Name">Gorra 🧢</h3>
+          <p>$15.00</p>
+          <button
+            type="button"
+            onclick="window.open('https://yourshopifystore.com/products/cap', '_blank')"
+            data-i18n="buyNowBtn"
+            aria-label="Comprar Generación Remanente Gorra ahora"
+          >
+            Comprar 🛒
+          </button>
+        </article>
+        <article class="product-card" role="group" aria-labelledby="product3Name">
+          <img src="assets/merch3.jpg" alt="Generación Remanente Taza" />
+          <h3 id="product3Name" data-i18n="product3Name">Taza ☕</h3>
+          <p>$10.00</p>
+          <button
+            type="button"
+            onclick="window.open('https://yourshopifystore.com/products/mug', '_blank')"
+            data-i18n="buyNowBtn"
+            aria-label="Comprar Generación Remanente Taza ahora"
+          >
+            Comprar 🛒
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section aria-labelledby="donationHeading" class="donation-section">
+      <h2 id="donationHeading" data-i18n="donationHeading">Haz una Donación 🙏</h2>
+      <form id="donation-form" aria-label="Donation Form" novalidate>
+        <fieldset>
+          <legend class="visually-hidden">Información del donante</legend>
+          <label for="donor-name" data-i18n="labelName">Nombre</label>
+          <input
+            type="text"
+            id="donor-name"
+            name="donor-name"
+            required
+            aria-required="true"
+            data-i18n-placeholder="placeholderName"
+            placeholder="Tu nombre"
+          />
+        </fieldset>
+
+        <fieldset>
+          <legend class="visually-hidden">Selección de cantidad de donación</legend>
+          <label for="donation-amount" data-i18n="labelAmount">Cantidad</label>
+          <select
+            id="donation-amount"
+            name="donation-amount"
+            required
+            aria-required="true"
+          >
+            <option value="" disabled selected data-i18n="selectAmount"
+              >Selecciona una cantidad</option
+            >
+            <option value="10">$10</option>
+            <option value="25">$25</option>
+            <option value="50">$50</option>
+            <option value="100">$100</option>
+            <option value="custom" data-i18n="otherAmountOption">Otra cantidad</option>
+          </select>
+          <input
+            type="number"
+            id="custom-amount"
+            name="custom-amount"
+            placeholder="Escribe tu cantidad"
+            class="hidden"
+            min="1"
+            aria-hidden="true"
+          />
+        </fieldset>
+
+        <fieldset>
+          <legend class="visually-hidden">Método de pago</legend>
+          <label for="payment-method" data-i18n="labelPaymentMethod"
+            >Método de Pago</label
+          >
+          <select
+            id="payment-method"
+            name="payment-method"
+            required
+            aria-required="true"
+          >
+            <option value="" disabled selected data-i18n="selectPaymentMethod"
+              >Selecciona un método</option
+            >
+            <option value="credit-card" data-i18n="paymentCreditCard"
+              >Tarjeta de Crédito</option
+            >
+            <option value="apple-pay" data-i18n="paymentApplePay">Apple Pay</option>
+          </select>
+        </fieldset>
+
+        <button
+          type="submit"
+          data-i18n="buttonDonate"
+          aria-label="Enviar donación"
+          class="donate-btn"
+        >
+          Donar 🙏
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="social-footer">
+    <div class="social-icons">
+      <a href="https://www.instagram.com/_generacionr_?igsh=NjRpcHByd2VhN21p" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/16xs5CdGys/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://youtube.com/@generacion_r?si=Q437HaWdcBAg8Kd1" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@generacin.remanent?_t=ZT-8y5XGkJwlPZ&_r=1" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p class="footer-copy" data-i18n="footerCopy"></p>
+  </footer>
+  
+
+  <script>
+    const navMenu = document.getElementById('navMenu');
+    const hamburger = document.getElementById('hamburger');
+    const mobileDropdownBtn = document.querySelector('.mobile-dropdown-btn');
+    const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
+
+    function toggleMenu() {
+      const isOpen = navMenu.classList.toggle('show');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    }
+
+    if (mobileDropdownBtn && mobileDropdownContent) {
+      mobileDropdownBtn.addEventListener('click', () => {
+        document.querySelectorAll('.mobile-dropdown-content').forEach((drop) => {
+          if (drop !== mobileDropdownContent) drop.classList.remove('show');
+        });
+        const expanded = mobileDropdownContent.classList.toggle('show');
+        mobileDropdownBtn.setAttribute('aria-expanded', expanded);
+      });
+    }
+
+    const donationAmountSelect = document.getElementById('donation-amount');
+    const customAmountInput = document.getElementById('custom-amount');
+
+    donationAmountSelect.addEventListener('change', () => {
+      if (donationAmountSelect.value === 'custom') {
+        customAmountInput.classList.remove('hidden');
+        customAmountInput.required = true;
+        customAmountInput.setAttribute('aria-hidden', 'false');
+      } else {
+        customAmountInput.classList.add('hidden');
+        customAmountInput.required = false;
+        customAmountInput.value = '';
+        customAmountInput.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    const translations = {
+      en: {
+        title: 'Generación Remanente',
+        headerTitle: 'Generación Remanente Ministry',
+        navHome: 'Home',
+        navAboutUs: 'About Us',
+        navOurMinistry: 'Our Ministry',
+        navOurPastors: 'Our Pastors',
+        navMessage: 'Message',
+        navGiveShop: 'Give & Shop',
+        navContact: 'Contact',
+        shopHeading: 'Shop Merchandise',
+        product1Name: 'T-Shirt',
+        product2Name: 'Cap',
+        product3Name: 'Mug',
+        buyNowBtn: 'Buy Now',
+        donationHeading: 'Make a Donation',
+        labelName: 'Name',
+        placeholderName: 'Your name',
+        labelAmount: 'Amount',
+        selectAmount: 'Select an amount',
+        otherAmountOption: 'Other amount',
+        placeholderCustomAmount: 'Enter your amount',
+        labelPaymentMethod: 'Payment Method',
+        selectPaymentMethod: 'Select a method',
+        paymentCreditCard: 'Credit Card',
+        paymentApplePay: 'Apple Pay',
+        buttonDonate: 'Donate',
+        footerCopy: '© 2025 Generación Remanente',
+      },
+      es: {
+        title: 'Generación Remanente',
+        headerTitle: 'Generación Remanente Ministry',
+        navHome: 'Inicio',
+        navAboutUs: 'Sobre Nosotros',
+        navOurMinistry: 'Nuestro Ministerio',
+        navOurPastors: 'Nuestros Pastores',
+        navMessage: 'Mensaje',
+        navGiveShop: 'Donar & Tienda',
+        navContact: 'Contacto',
+        shopHeading: 'Tienda de Mercancía',
+        product1Name: 'Camiseta',
+        product2Name: 'Gorra',
+        product3Name: 'Taza',
+        buyNowBtn: 'Comprar',
+        donationHeading: 'Haz una Donación',
+        labelName: 'Nombre',
+        placeholderName: 'Tu nombre',
+        labelAmount: 'Cantidad',
+        selectAmount: 'Selecciona una cantidad',
+        otherAmountOption: 'Otra cantidad',
+        placeholderCustomAmount: 'Escribe tu cantidad',
+        labelPaymentMethod: 'Método de Pago',
+        selectPaymentMethod: 'Selecciona un método',
+        paymentCreditCard: 'Tarjeta de Crédito',
+        paymentApplePay: 'Apple Pay',
+        buttonDonate: 'Donar',
+        footerCopy: '© 2025 Generación Remanente',
+      },
+    };
+
+    function applyTranslations(lang = 'es') {
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key]) el.placeholder = translations[lang][key];
+      });
+      document.title = translations[lang].title || 'Generación Remanente';
+    }
+
+    // Apply Spanish on load
+    applyTranslations('es');
+  </script>
+</body>
+</html>
