@@ -12,7 +12,7 @@
 <body>
   <header class="navbar">
     <img src="assets/log.jpeg" class="navbar-logo" alt="Logo" />
-    <h1 class="header-title" data-i18n="headerTitle">Generación Remanente Ministry</h1>
+    <h1 class="header-title">Ministerio Generacion Remanente</h1>
     <nav>
       <div class="nav-desktop">
         <a href="index.html" data-i18n="navHome">Inicio</a>
@@ -29,7 +29,7 @@
         <a href="contact.html" data-i18n="navContact">Contacto</a>
       </div>
 
-      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
 
@@ -81,10 +81,10 @@
     const mobileDropdownBtn = document.querySelector('.mobile-dropdown-btn');
     const mobileDropdownContent = document.querySelector('.mobile-dropdown-content');
 
-    function toggleMenu() {
-      const isOpen = navMenu.classList.toggle('show');
-      hamburger.setAttribute('aria-expanded', isOpen);
-    }
+    hamburger.addEventListener('click', () => {
+  const isOpen = navMenu.classList.toggle('show');
+  hamburger.setAttribute('aria-expanded', isOpen);
+});
 
     mobileDropdownBtn.addEventListener('click', () => {
       mobileDropdownContent.classList.toggle('show');
